@@ -1,0 +1,137 @@
+<html>
+<head>
+<script type='text/javascript' src='http://lrn.icstars.org/redball.js'></script>
+<script>
+
+function hitwall(){
+if(redball.top < 0){
+	console.log("top wall hit");	
+	};
+if(redball.left < 0){
+	console.log("left wall hit");
+	}
+if(redball.left > screen.width){
+	console.log("right wall hit");
+	}
+if(redball.top > screen.height){
+	console.log("bottom wall hit");
+	}
+}
+function moveup(){
+var potentialTop=redball.top -5;
+if(potentialTop<0){
+console.log("stop");
+}
+else{
+redball.top= redball.top -5;
+}
+}
+
+function movedown(){
+var pD=redball.top +5;
+if(pD<200){
+redball.top= redball.top +5;
+}
+}
+
+function moveright(){
+var pR=redball.left +10;
+if(pR>100){}else{
+
+redball.left= redball.left +5;
+}
+}
+
+function moveleft(){
+var pL=redball.left -10;
+if(pL<0){
+}else{
+redball.left= redball.left -5;
+}
+}
+function moveupleft(){
+	moveup();
+	moveleft();
+}
+
+function moveupright(){
+	moveup();
+	moveright();
+}
+
+function movedownleft(){
+	movedown();
+	moveleft();
+}
+
+function movedownright(){
+	movedown();
+	moveright();
+}
+
+function movesquare(){ 
+	for (var i=1;i<=10;i++){
+		moveup();
+	}
+	for (var i=1;i<=10;i++){
+		moveright();
+	}
+	for (var i=1;i<=10;i++){
+		movedown();
+	}
+	for (var i=1;i<=10;i++){
+		moveleft();
+	} ;
+};
+
+function triangle(){ 
+	for (var i=1;i<=10;i++){
+		moveupright();
+	}
+	for (var i=1;i<=10;i++){
+		movedownright();
+	}
+	for (var i=1;i<=20;i++){
+		moveleft();
+	} 
+};
+
+function movex(){
+for(var i=1;i<=10;i++){
+	moveupleft();
+	}
+for(var i=1;i<=20;i++){
+	movedownright();
+	}
+for(var i=1;i<=10;i++){
+	moveupleft();
+	}
+for(var i=1;i<=10;i++){
+	moveupright();
+	}
+for(var i=1;i<=20;i++){
+	movedownleft();
+	}
+for(var i=1;i<=10;i++){
+	moveupright();
+	}
+};
+
+</script>
+</head>
+<body>
+<img src="redball.jpg" id="redball" height="50" width="50"/>
+<button onclick="moveup();">Move Up</button>
+<button onclick="movedown()">Move Down</button>
+<button onclick="moveleft()">Move Left</button>
+<button onclick="moveright()">Move Right</button>
+<button onclick="movesquare()">Move Square</button>
+<button onclick="moveupleft()">Move Up and Left</button>
+<button onclick="moveupright()">Move Up and Right</button>
+<button onclick="movedownleft()">Move Down and Left</button>
+<button onclick="movedownright()">Move Down and Right</button>
+<button onclick="triangle()">Move Triangle</button>
+<button onclick="movex()">Move X</button>
+
+</body>
+</html>
