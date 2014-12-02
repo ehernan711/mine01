@@ -1,7 +1,19 @@
 <html>
 <head>
 <style>
+#arrow
+{
+	height: 50px;
+	width: 50px;
 
+.console{
+	background-color: blue;
+	color: white;
+}
+
+#redball{
+	left: 200px;
+	top: 200px;
 
 </style>
 <script type='text/javascript' src='http://lrn.icstars.org/redball.js'></script>
@@ -33,14 +45,16 @@ redball.top= redball.top -5;
 
 function movedown(){
 var pD=redball.top +5;
-if(pD<200){
+if(pD<500){
 redball.top= redball.top +5;
 }
 }
 
 function moveright(){
 var pR=redball.left +10;
-if(pR>100){}else{
+if(pR>500){
+
+}else{
 
 redball.left= redball.left +5;
 }
@@ -125,15 +139,25 @@ for(var i=1;i<=10;i++){
 </head>
 <body>
 <img src="redball.jpg" id="redball" height="50" width="50"/>
-<button onclick="moveup();">Move Up</button>
-<button onclick="movedown()">Move Down</button>
-<button onclick="moveleft()">Move Left</button>
-<button onclick="moveright()">Move Right</button>
+<table class="console">
+	<tr>
+		<td><button onclick="moveupleft()"><img src="ularrow.jpg" id="arrow" /></button></td>
+		<td><button onclick="moveup()"><img src="uarrow.jpg" id="arrow" /></button></td>
+		<td><button onclick="moveupright()"><img src="urarrow.jpg" id="arrow" /></button></td>
+	</tr>
+		<tr>
+		<td><button onclick="moveleft()"><img src="larrow.jpg" id="arrow" /></button></td>
+		<td><button onclick="triangle()"><img src="redball.jpg" id="arrow" /></button></td>
+		<td><button onclick="moveright()"><img src="rarrow.jpg" id="arrow" /></button></td>
+	</tr>
+	<tr>
+		<td><button onclick="movedownleft()"><img src="dlarrow.jpg" id="arrow" /></button></td>
+		<td><button onclick="movedown()"><img src="darrow.jpg" id="arrow" /></button></td>
+		<td><button onclick="movedownright()"><img src="drarrow.jpg" id="arrow" /></button></td>
+	</tr>
+</table>
+
 <button onclick="movesquare()">Move Square</button>
-<button onclick="moveupleft()">Move Up and Left</button>
-<button onclick="moveupright()">Move Up and Right</button>
-<button onclick="movedownleft()">Move Down and Left</button>
-<button onclick="movedownright()">Move Down and Right</button>
 <button onclick="triangle()">Move Triangle</button>
 <button onclick="movex()">Move X</button>
 

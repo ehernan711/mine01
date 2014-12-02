@@ -1,0 +1,113 @@
+<html>
+<head>
+<style>
+#redball{
+position: absolute;
+left: 90px;
+top: 100px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script>
+function moveright(){
+  var elem = $("#redball")
+  var pos = elem.offset();
+  if(pos.left<400){
+  pos.left = pos.left + 20;
+  elem.animate({ top: pos.top+'px', left: pos.left+'px' });
+  }else{
+  console.log("Hit Right Wall");
+  }
+}
+
+function grow(){
+	var elem = $("#mytitle");
+	elem.css("font-size","25px");
+}
+
+function fadeout(){
+	var elem = $("#redball");
+	var title = $("#mytitle");
+	elem.fadeOut();
+	title.fadeOut();
+}
+
+function fadein(){
+	var elem = $("#redball");
+	var title = $("#mytitle");
+	elem.fadeIn();
+	title.fadeIn();
+}
+
+function moveleft(){
+  var elem = $("#redball");
+  var pos = elem.offset();
+    if(pos.left>0){
+  pos.left = pos.left - 20;
+  elem.animate({left: pos.left+'px' });
+  }else{
+  console.log("stop");
+  }
+}
+
+function moveup(){
+  var elem = $("#redball");
+  var pos = elem.offset();
+  if(pos.top>0){
+  pos.top = pos.top - 20;
+  elem.animate({ top: pos.top+'px', left: pos.left+'px' });
+}else{
+  console.log("stop");
+}
+}
+
+function movedown(){
+  var elem = $("#redball");
+  var pos = elem.offset();
+    if(pos.top<400){
+  pos.top = pos.top + 20;
+  elem.css({ top: pos.top+'px', left: pos.left+'px' });
+  }else{
+  console.log("stop");
+}
+}
+
+function movedownleft(){
+  var elem = $("#redball");
+  var pos = elem.offset();
+  pos.top = pos.top + 20;
+  pos.left = pos.left -20;
+  elem.animate({ top: pos.top+'px', left: pos.left+'px' });
+}
+
+function movedownright(){
+  var elem = $("#redball");
+  var pos = elem.offset();
+  pos.top = pos.top + 20;
+  pos.left = pos.left +20;
+  elem.css({ top: pos.top+'px', left: pos.left+'px' });
+}
+
+function moveupright(){
+moveup();
+moveright();
+}
+
+</script>
+</head>
+<body>
+<p id="mytitle">The Title</p>
+<img id='redball' src='http://www.icstars.org/files/redball.jpg'/>
+<button onclick="moveright();">move right</button>
+<button onclick="moveleft();">move left</button>
+<button onclick="moveup();">move up</button>
+<button onclick="movedown();">move down</button>
+<button onclick="movedownleft();">move down and left</button>
+<button onclick="movedownright();">move down and right</button>
+<button onclick="moveupright();">move up and right</button>
+
+<button onclick="grow();">grow</button>
+<button onclick="fadeout();">fade out</button>
+<button onclick="fadein();">fade in</button>
+</body>
+</html>
